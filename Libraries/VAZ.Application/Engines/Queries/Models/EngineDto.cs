@@ -17,6 +17,7 @@ namespace VAZ.Application.Engines.Queries.Models
 		public DateTime? UpdatedTime { get; set; }
 		public string Name { get; set; }
 
+
 		public void Mapping(Profile profile)
 		{
 			profile.CreateMap<Engine,EngineDto>()
