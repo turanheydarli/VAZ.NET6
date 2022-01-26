@@ -1,24 +1,31 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using VAZ.Application.Catalog.Engines.Commands.Models;
+using VAZ.Application.Catalog.Engines.Queries.Models;
 using VAZ.Application.Interfaces;
+using VAZ.Web.Framework.Controllers;
 using WEB.Models;
 
 namespace WEB.Controllers
 {
-	public class HomeController : Controller
+	public class HomeController : BaseController
 	{
 		private readonly ILogger<HomeController> _logger;
-		private readonly IProductService _productService;
 
 		public HomeController(ILogger<HomeController> logger, IProductService productService)
 		{
 			_logger = logger;
-			_productService = productService;
 		}
 
-		public IActionResult Index()
+		public async Task<IActionResult> Index()
 		{
-			return Ok(_productService.GetAll());
+			return Ok(await Mediator.Send(new GetEnginesQuery()));
+		}
+
+		[HttpGet("add")]
+		public async Task<IActionResult> Add()
+		{
+			return Ok(await Mediator.Send(new CreateEngineCommand { Name = "test" }));
 		}
 
 		public IActionResult Privacy()

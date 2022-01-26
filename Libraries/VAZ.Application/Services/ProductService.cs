@@ -1,9 +1,9 @@
 ﻿using VAZ.Application.Interfaces;
-using VAZ.Application.Products.Queries.Model;
 using VAZ.Domain.Entities;
 using VAZ.Infrastructure.Persistence;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
+using VAZ.Application.Models;
 
 namespace VAZ.Application.Services
 {

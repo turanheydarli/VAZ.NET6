@@ -28,14 +28,14 @@ namespace VAZ.Infrastructure.Persistence
 				.WithMany(b => b.Products)
 				.HasForeignKey(p => p.BanId);
 
-			builder.Entity<Media>()
+			builder.Entity<Picture>()
 				.HasOne(m => m.Product)
-				.WithMany(p => p.Images)
+				.WithMany(p => p.Pictures)
 				.HasForeignKey(m => m.ProductId);
 
-			builder.Entity<Media>()
+			builder.Entity<Picture>()
 				.HasOne(m => m.Product)
-				.WithMany(p => p.Images)
+				.WithMany(p => p.Pictures)
 				.HasForeignKey(m => m.ProductId);
 
 			builder.Entity<Shop>()

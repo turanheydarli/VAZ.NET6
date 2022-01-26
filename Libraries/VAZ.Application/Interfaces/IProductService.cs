@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VAZ.Application.Products.Queries.Model;
+using VAZ.Application.Models;
 
 namespace VAZ.Application.Interfaces
 {

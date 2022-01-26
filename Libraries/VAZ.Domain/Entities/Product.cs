@@ -17,7 +17,7 @@ namespace VAZ.Domain.Entities
 		public ProductDetail ProductDetail { get; set; }
 		public int ViewCount { get; set; }
 		public string Contact { get; set; }
-		public ICollection<Media> Images { get; set; }
+		public ICollection<Picture> Pictures { get; set; }
 		public bool IsPro { get; set; }
 		public bool IsVip { get; set; }
 		

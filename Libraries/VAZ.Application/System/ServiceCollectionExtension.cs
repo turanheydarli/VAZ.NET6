@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -9,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using VAZ.Application.Interfaces;
 using VAZ.Application.Services;
+using VAZ.Application.Storage.Interfaces;
+using VAZ.Application.Storage.Services;
 using VAZ.Infrastructure.Persistence;
 using VAZ.Infrastructure.Persistence.EntityFramework;
 
@@ -20,6 +23,7 @@ namespace VAZ.Application.System
 		{
 			services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 			services.AddScoped<IProductService, ProductService>();
+			services.AddScoped<IPictureService, PictureService>();
 
 			return services;
 		}
@@ -27,6 +31,7 @@ namespace VAZ.Application.System
 		public static IServiceCollection AddApplication(this IServiceCollection services)
 		{
 			services.AddAutoMapper(Assembly.GetExecutingAssembly());
+			services.AddMediatR(Assembly.GetAssembly(typeof(ServiceCollectionExtension)));
 
 			return services;
 		}

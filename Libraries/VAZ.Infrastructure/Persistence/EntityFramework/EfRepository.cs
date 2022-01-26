@@ -70,7 +70,7 @@ namespace VAZ.Infrastructure.Persistence.EntityFramework
 			return includes.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
 		}
 
-		public T InertWithoutCommit(T entity)
+		public T InsertWithoutCommit(T entity)
 		{
 			if (entity == null)
 				throw new ArgumentNullException(nameof(entity));
@@ -95,7 +95,6 @@ namespace VAZ.Infrastructure.Persistence.EntityFramework
 			try
 			{
 				Entities.Remove(entity);
-				Commit();
 				return 1;
 			}
 			catch
@@ -163,6 +162,78 @@ namespace VAZ.Infrastructure.Persistence.EntityFramework
 			{
 				return ex.ToString();
 			}
+		}
+
+		public async Task<T> GetAsync(Expression<Func<T, bool>> expression, params Expression<Func<T, object>>[] includes)
+		{
+			var query = Entities.Where(expression);
+			return await includes.Aggregate(query, (current, includeProperty) => current.Include(includeProperty)).FirstOrDefaultAsync();
+		}
+
+		public async Task<T> InsertAsync(T entity)
+		{
+			if (entity == null)
+				throw new ArgumentNullException(nameof(entity));
+
+			await Entities.AddAsync(entity);
+			await CommitAsync();
+
+			return entity;
+		}
+
+		public T Insert(T entity)
+		{
+			if (entity == null)
+				throw new ArgumentNullException(nameof(entity));
+
+			Entities.Add(entity);
+			Commit();
+
+			return entity;
+		}
+
+		public async Task<T> GetByIdAsync(int id)
+		{
+			return await Entities.FirstOrDefaultAsync(x => x.Id == id);
+		}
+
+		public async Task<int> CommitAsync()
+		{
+			try
+			{
+				return await _context.SaveChangesAsync();
+			}
+			catch (DbUpdateException exception)
+			{
+				GetFullErrorTextAndRollbackEntityChanges(exception);
+				return -1;
+			}
+		}
+
+		public async Task<int> UpdateAsync(T entity)
+		{
+			if (entity == null)
+				throw new ArgumentNullException(nameof(entity));
+			try
+			{
+				Entities.Update(entity);
+				await CommitAsync();
+				return 1;
+			}
+			catch
+			{
+				return -1;
+			}
+		}
+
+		public async Task<int> DeleteAsync(T entity)
+		{
+			if (entity == null)
+				throw new ArgumentNullException(nameof(entity));
+
+			await Task.Run(() => Entities.Remove(entity));
+
+			return await CommitAsync();
 		}
 	}
 }

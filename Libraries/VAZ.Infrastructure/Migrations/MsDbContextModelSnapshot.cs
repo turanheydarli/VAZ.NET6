@@ -460,44 +460,6 @@ namespace VAZ.Infrastructure.Migrations
                     b.ToTable("Gear");
                 });
 
-            modelBuilder.Entity("VAZ.Domain.Entities.Media", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Caption")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
-
-                    b.Property<int>("FileSize")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MediaType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Media");
-                });
-
             modelBuilder.Entity("VAZ.Domain.Entities.Param", b =>
                 {
                     b.Property<int>("Id")
@@ -523,6 +485,44 @@ namespace VAZ.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Param");
+                });
+
+            modelBuilder.Entity("VAZ.Domain.Entities.Picture", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Caption")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(250)
+                        .HasColumnType("nvarchar(250)");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("MimeType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Picture");
                 });
 
             modelBuilder.Entity("VAZ.Domain.Entities.Product", b =>
@@ -817,10 +817,10 @@ namespace VAZ.Infrastructure.Migrations
                     b.Navigation("City");
                 });
 
-            modelBuilder.Entity("VAZ.Domain.Entities.Media", b =>
+            modelBuilder.Entity("VAZ.Domain.Entities.Picture", b =>
                 {
                     b.HasOne("VAZ.Domain.Entities.Product", "Product")
-                        .WithMany("Images")
+                        .WithMany("Pictures")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -951,7 +951,7 @@ namespace VAZ.Infrastructure.Migrations
 
             modelBuilder.Entity("VAZ.Domain.Entities.Product", b =>
                 {
-                    b.Navigation("Images");
+                    b.Navigation("Pictures");
 
                     b.Navigation("ProductDetail");
                 });

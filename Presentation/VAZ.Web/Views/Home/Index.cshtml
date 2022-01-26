@@ -1,0 +1,14 @@
+﻿@using VAZ.Application.Catalog.Products.Commands.Models
+
+@model CreateProductCommand
+
+<form method="post" enctype="multipart/form-data">
+	<input asp-for="@Model.Title" />
+	<input asp-for="@Model.Description" />
+	<input asp-for="@Model.Price" />
+	<input asp-for="@Model.IsPro" />
+	<input asp-for="@Model.IsVip" />
+	<input asp-for="@Model.IsVip" />
+	<input type="file" asp-for="@Model.ImageFiles" multiple />
+	<button type="submit">hh</button>
+</form>
