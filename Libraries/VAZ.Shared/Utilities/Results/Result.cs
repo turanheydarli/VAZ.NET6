@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Turan.Shared.Utilities.Results
+namespace VAZ.Shared.Utilities.Results
 {
 	public class Result : IResult
 	{

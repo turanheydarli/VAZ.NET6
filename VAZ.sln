@@ -7,17 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{0E98D9C6-5FC3-41C7-BF8C-6A30A49AF2F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAZ.Domain", "Libraries\VAZ.Domain\VAZ.Domain.csproj", "{E7F0F5D6-2C48-400F-A54E-B9FEAED7E270}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VAZ.Domain", "Libraries\VAZ.Domain\VAZ.Domain.csproj", "{E7F0F5D6-2C48-400F-A54E-B9FEAED7E270}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAZ.Infrastructure", "Libraries\VAZ.Infrastructure\VAZ.Infrastructure.csproj", "{90B2CF4C-DC04-44A5-B189-B0199E45DBF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VAZ.Infrastructure", "Libraries\VAZ.Infrastructure\VAZ.Infrastructure.csproj", "{90B2CF4C-DC04-44A5-B189-B0199E45DBF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAZ.Application", "Libraries\VAZ.Application\VAZ.Application.csproj", "{9F4F6F0B-62C4-47F9-8F82-8670A72C7604}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VAZ.Application", "Libraries\VAZ.Application\VAZ.Application.csproj", "{9F4F6F0B-62C4-47F9-8F82-8670A72C7604}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAZ.Shared", "Libraries\VAZ.Shared\VAZ.Shared.csproj", "{88EF8771-DE27-4C0B-A5B7-DE8E50E2315F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VAZ.Shared", "Libraries\VAZ.Shared\VAZ.Shared.csproj", "{88EF8771-DE27-4C0B-A5B7-DE8E50E2315F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAZ.Web.Framework", "Presentation\VAZ.Web.Framework\VAZ.Web.Framework.csproj", "{7D2C3E8C-AC8C-4106-B4DF-5955FD8C60C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VAZ.Web.Framework", "Presentation\VAZ.Web.Framework\VAZ.Web.Framework.csproj", "{7D2C3E8C-AC8C-4106-B4DF-5955FD8C60C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAZ.Web", "Presentation\VAZ.Web\VAZ.Web.csproj", "{FB559024-7E36-4D4E-8DE9-C029008A9E23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VAZ.Web", "Presentation\VAZ.Web\VAZ.Web.csproj", "{FB559024-7E36-4D4E-8DE9-C029008A9E23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VAZ.WebAPI", "Presentation\VAZ.WebAPI\VAZ.WebAPI.csproj", "{94BCF0D7-2762-4BC1-91CC-579C43CCC69D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{FB559024-7E36-4D4E-8DE9-C029008A9E23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB559024-7E36-4D4E-8DE9-C029008A9E23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB559024-7E36-4D4E-8DE9-C029008A9E23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94BCF0D7-2762-4BC1-91CC-579C43CCC69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94BCF0D7-2762-4BC1-91CC-579C43CCC69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94BCF0D7-2762-4BC1-91CC-579C43CCC69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94BCF0D7-2762-4BC1-91CC-579C43CCC69D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{88EF8771-DE27-4C0B-A5B7-DE8E50E2315F} = {08172433-E9E7-4CAB-81B8-1F8115E732C5}
 		{7D2C3E8C-AC8C-4106-B4DF-5955FD8C60C0} = {0E98D9C6-5FC3-41C7-BF8C-6A30A49AF2F6}
 		{FB559024-7E36-4D4E-8DE9-C029008A9E23} = {0E98D9C6-5FC3-41C7-BF8C-6A30A49AF2F6}
+		{94BCF0D7-2762-4BC1-91CC-579C43CCC69D} = {0E98D9C6-5FC3-41C7-BF8C-6A30A49AF2F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {463418D1-D359-4E9B-BD76-ED7029F34B45}

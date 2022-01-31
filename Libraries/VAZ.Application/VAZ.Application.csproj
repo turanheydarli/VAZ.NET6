@@ -26,9 +26,4 @@
     <ProjectReference Include="..\VAZ.Shared\VAZ.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Catalog\Brands\Commands\Handlers\" />
-    <Folder Include="Catalog\Brands\Commands\Models\" />
-  </ItemGroup>
-
 </Project>

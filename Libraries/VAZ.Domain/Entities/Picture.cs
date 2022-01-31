@@ -14,7 +14,6 @@ namespace VAZ.Domain.Entities
 		public string FileName { get; set; }
 		public string MimeType { get; set; }
 		public int ProductId { get; set; }
-		public Product Product { get; set; }
 
 	}
 }

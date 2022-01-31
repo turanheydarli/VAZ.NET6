@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Turan.Shared.Utilities.Results;
+using VAZ.Shared.Utilities.Results;
 using VAZ.Application.Catalog.Products.Queries.Models;
 using VAZ.Application.Models;
 using VAZ.Domain.Entities;
